@@ -1,0 +1,12 @@
+2024-05-08 14:45:54.432 +11:00 [INF] Now listening on: http://localhost:5106
+2024-05-08 14:45:54.468 +11:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-08 14:45:54.469 +11:00 [INF] Hosting environment: Development
+2024-05-08 14:45:54.469 +11:00 [INF] Content root path: /Users/rjacky/Desktop/Net Web Api Projects/web_api
+2024-05-08 14:45:54.811 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/index.html - -
+2024-05-08 14:45:54.922 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/index.html - - - 200 - text/html;charset=utf-8 111.9045ms
+2024-05-08 14:45:54.934 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/swagger-ui-bundle.js - -
+2024-05-08 14:45:54.953 +11:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-05-08 14:45:54.955 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/swagger-ui-bundle.js - - - 200 1061536 text/javascript 21.6089ms
+2024-05-08 14:45:55.023 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/v1/swagger.json - -
+2024-05-08 14:45:55.103 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 80.6615ms
+2024-05-08 14:45:59.813 +11:00 [INF] Application is shutting down...
