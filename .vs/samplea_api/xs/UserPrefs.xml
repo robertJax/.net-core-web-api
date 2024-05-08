@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{20930804-A18B-4E78-949C-5C8503C4E8B5}|http">
+  <MonoDevelop.Ide.ItemProperties.samplea__api PreferredExecutionTarget="/Applications/Opera GX.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="appsettings.json">
+    <Files>
+      <File FileName="Data/Student.cs" Line="12" Column="1" />
+      <File FileName="Data/CollegeDbContext.cs" Line="10" Column="3" />
+      <File FileName="Program.cs" Line="38" Column="4" />
+      <File FileName="appsettings.json" Line="29" Column="25" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="samplea_api" expanded="True">
+            <Node name="samplea_api" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Model" expanded="True" />
+              <Node name="Validation" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

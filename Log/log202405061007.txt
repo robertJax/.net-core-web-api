@@ -1,0 +1,17 @@
+2024-05-06 10:07:50.580 +11:00 [INF] Now listening on: http://localhost:5106
+2024-05-06 10:07:50.651 +11:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-06 10:07:50.651 +11:00 [INF] Hosting environment: Development
+2024-05-06 10:07:50.651 +11:00 [INF] Content root path: /Users/rjacky/Desktop/Net Web Api Projects/samplea_api
+2024-05-06 10:07:51.698 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/index.html - null null
+2024-05-06 10:07:51.745 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/index.html - 200 null text/html;charset=utf-8 47.968ms
+2024-05-06 10:07:51.752 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/swagger-ui.css - null null
+2024-05-06 10:07:51.755 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/swagger-ui-bundle.js - null null
+2024-05-06 10:07:51.781 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/swagger-ui-standalone-preset.js - null null
+2024-05-06 10:07:52.144 +11:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-05-06 10:07:52.144 +11:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-05-06 10:07:52.145 +11:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-05-06 10:07:52.147 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/swagger-ui.css - 200 144929 text/css 394.5244ms
+2024-05-06 10:07:52.147 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/swagger-ui-standalone-preset.js - 200 312163 text/javascript 365.8559ms
+2024-05-06 10:07:52.147 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 391.4592ms
+2024-05-06 10:07:52.217 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/v1/swagger.json - null null
+2024-05-06 10:07:52.288 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 70.5399ms

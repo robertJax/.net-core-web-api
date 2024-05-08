@@ -1,0 +1,27 @@
+2024-05-07 17:05:38.949 +11:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE `collegeAppDB`
+2024-05-07 17:05:39.039 +11:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `__EFMigrationsHistory` (
+    `MigrationId` varchar(150) NOT NULL,
+    `ProductVersion` varchar(32) NOT NULL,
+    PRIMARY KEY (`MigrationId`)
+);
+2024-05-07 17:05:39.044 +11:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='collegeAppDB' AND TABLE_NAME='__EFMigrationsHistory';
+2024-05-07 17:05:39.048 +11:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-05-07 17:05:39.053 +11:00 [INF] Applying migration '20240507060437_InitialDBSetup'.
+2024-05-07 17:05:39.068 +11:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Students` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `StudentName` longtext NOT NULL,
+    `Email` longtext NOT NULL,
+    `Address` longtext NOT NULL,
+    `DOB` datetime(6) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 17:05:39.071 +11:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20240507060437_InitialDBSetup', '7.0.16');

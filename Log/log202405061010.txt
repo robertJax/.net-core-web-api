@@ -1,0 +1,7 @@
+2024-05-06 10:10:18.590 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Student/2 - null null
+2024-05-06 10:10:18.599 +11:00 [INF] Executing endpoint 'samplea_api.Controllers.StudentController.GetStudentById (samplea_api)'
+2024-05-06 10:10:18.606 +11:00 [INF] Route matched with {action = "GetStudentById", controller = "Student"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[samplea_api.Model.StudentDTO] GetStudentById(Int32) on controller samplea_api.Controllers.StudentController (samplea_api).
+2024-05-06 10:10:18.612 +11:00 [INF] Executing OkObjectResult, writing value of type 'samplea_api.Model.Student'.
+2024-05-06 10:10:18.613 +11:00 [INF] Executed action samplea_api.Controllers.StudentController.GetStudentById (samplea_api) in 6.3277ms
+2024-05-06 10:10:18.613 +11:00 [INF] Executed endpoint 'samplea_api.Controllers.StudentController.GetStudentById (samplea_api)'
+2024-05-06 10:10:18.613 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/2 - 200 null application/json; charset=utf-8 22.8878ms

@@ -1,0 +1,8 @@
+2024-05-06 10:09:43.475 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Student/All - null null
+2024-05-06 10:09:43.487 +11:00 [INF] Executing endpoint 'samplea_api.Controllers.StudentController.GetStudents (samplea_api)'
+2024-05-06 10:09:43.496 +11:00 [INF] Route matched with {action = "GetStudents", controller = "Student"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[samplea_api.Model.StudentDTO]] GetStudents() on controller samplea_api.Controllers.StudentController (samplea_api).
+2024-05-06 10:09:43.497 +11:00 [INF] GetStudents method started
+2024-05-06 10:09:43.499 +11:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[samplea_api.Model.Student, samplea_api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[samplea_api.Model.StudentDTO, samplea_api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-06 10:09:43.504 +11:00 [INF] Executed action samplea_api.Controllers.StudentController.GetStudents (samplea_api) in 5.9271ms
+2024-05-06 10:09:43.504 +11:00 [INF] Executed endpoint 'samplea_api.Controllers.StudentController.GetStudents (samplea_api)'
+2024-05-06 10:09:43.504 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/All - 200 null application/json; charset=utf-8 29.4192ms

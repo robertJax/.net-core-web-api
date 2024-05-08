@@ -1,0 +1,11 @@
+2024-05-06 10:14:56.904 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Demo - null null
+2024-05-06 10:14:56.906 +11:00 [INF] Executing endpoint 'samplea_api.Controllers.DemoController.Index (samplea_api)'
+2024-05-06 10:14:56.909 +11:00 [INF] Route matched with {action = "Index", controller = "Demo"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller samplea_api.Controllers.DemoController (samplea_api).
+2024-05-06 10:14:56.910 +11:00 [INF] Log message from Information method
+2024-05-06 10:14:56.910 +11:00 [WRN] Log message from Warning method
+2024-05-06 10:14:56.910 +11:00 [ERR] Log message from Error method
+2024-05-06 10:14:56.910 +11:00 [FTL] Log message from Critical method
+2024-05-06 10:14:56.914 +11:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-05-06 10:14:56.914 +11:00 [INF] Executed action samplea_api.Controllers.DemoController.Index (samplea_api) in 5.3369ms
+2024-05-06 10:14:56.914 +11:00 [INF] Executed endpoint 'samplea_api.Controllers.DemoController.Index (samplea_api)'
+2024-05-06 10:14:56.915 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Demo - 200 0 null 10.8339ms
