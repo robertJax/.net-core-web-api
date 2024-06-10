@@ -11,7 +11,7 @@ namespace web_api.Model
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Student name is required")]
-        [StringLength(30)] //to accept max charact only
+        [StringLength(30)] //to accept max character only
         public string StudentName { get; set; }
 
         [EmailAddress(ErrorMessage = "Please enter valid email address")]

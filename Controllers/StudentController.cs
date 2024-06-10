@@ -1,6 +1,7 @@
 ﻿/*using System;
 using System.Net;*/
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -53,9 +54,10 @@ namespace web_api.Controllers
             //If you want to return just particular columns, use StudentDTO
             //using Linq query
 
-            var students = await _dbContext.Students.ToListAsync();
+            // var students = await _dbContext.Students.ToListAsync();
+            return await _dbContext.Students.ProjectTo<StudentDTO>(_mapper.ConfigurationProvider).ToListAsync();
 
-            var studentDtoData = _mapper.Map<List<StudentDTO>>(students);
+            // var studentDtoData = _mapper.Map<List<StudentDTO>>(students);
             
             //With AutoMapper with don't need code below
             // var students = await _dbContext.Students.Select(s => new StudentDTO()
@@ -70,7 +72,7 @@ namespace web_api.Controllers
             
 
             //Ok - 200 Success
-            return Ok(studentDtoData);
+            // return Ok(studentDtoData);
 		}
 
         [HttpGet]
@@ -89,7 +91,9 @@ namespace web_api.Controllers
             }
              
 
-            var student = await _dbContext.Students.Where(n => n.Id == id).FirstOrDefaultAsync();
+            var student = await _dbContext.Students.Where(n => n.Id == id)
+                // .ProjectTo<StudentDTO>(_mapper.ConfigurationProvider)
+                .FirstOrDefaultAsync();
 
             //NotFound - 404 - NotFound - client error
             if (student == null)

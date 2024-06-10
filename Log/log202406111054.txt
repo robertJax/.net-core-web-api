@@ -1,0 +1,30 @@
+2024-06-11 10:54:15.277 +11:00 [INF] Now listening on: http://localhost:5106
+2024-06-11 10:54:15.321 +11:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-11 10:54:15.322 +11:00 [INF] Hosting environment: Development
+2024-06-11 10:54:15.322 +11:00 [INF] Content root path: /Users/rjacky/Desktop/Net Web Api Projects/api/web_api
+2024-06-11 10:54:18.511 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/index.html - -
+2024-06-11 10:54:18.650 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/index.html - - - 200 - text/html;charset=utf-8 140.0841ms
+2024-06-11 10:54:18.720 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/v1/swagger.json - -
+2024-06-11 10:54:18.807 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 86.4689ms
+2024-06-11 10:54:24.856 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Student/All - -
+2024-06-11 10:54:24.862 +11:00 [INF] Executing endpoint 'web_api.Controllers.StudentController.GetStudentsAsync (web_api)'
+2024-06-11 10:54:24.879 +11:00 [INF] Route matched with {action = "GetStudents", controller = "Student"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[web_api.Model.StudentDTO]]] GetStudentsAsync() on controller web_api.Controllers.StudentController (web_api).
+2024-06-11 10:54:25.111 +11:00 [INF] Executing action method web_api.Controllers.StudentController.GetStudentsAsync (web_api) - Validation state: "Valid"
+2024-06-11 10:54:25.114 +11:00 [INF] GetStudents method started
+2024-06-11 10:54:26.244 +11:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, CASE
+    WHEN `s`.`StudentName` = '' THEN 'No address found'
+    ELSE `s`.`StudentName`
+END AS `StudentName`, CASE
+    WHEN `s`.`Email` = '' THEN 'No address found'
+    ELSE `s`.`Email`
+END AS `Email`, CASE
+    WHEN `s`.`Address` IS NULL OR (`s`.`Address` = '') THEN 'No address found'
+    ELSE `s`.`Address`
+END AS `Address`, `s`.`DOB`
+FROM `Students` AS `s`
+2024-06-11 10:54:26.276 +11:00 [INF] Executed action method web_api.Controllers.StudentController.GetStudentsAsync (web_api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1159.8282ms.
+2024-06-11 10:54:26.288 +11:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[web_api.Model.StudentDTO, web_api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-11 10:54:26.456 +11:00 [INF] Executed action web_api.Controllers.StudentController.GetStudentsAsync (web_api) in 1574.0579ms
+2024-06-11 10:54:26.457 +11:00 [INF] Executed endpoint 'web_api.Controllers.StudentController.GetStudentsAsync (web_api)'
+2024-06-11 10:54:26.475 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/All - - - 200 324 application/json;+charset=utf-8 1619.1802ms
