@@ -2,6 +2,7 @@
 using web_api.Data;
 using web_api.Logging;
 using Serilog;
+using web_api.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,10 +39,12 @@ builder.Services.AddDbContext<CollegeDbContext>(options =>
 });
 
 
-builder.Services.AddControllers();//.AddNewtonsoftJson();
+builder.Services.AddControllers() .AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 //builder.Services.AddScoped<IMyLogger, LogToDB>();
 //builder.Services.AddSingleton<IMyLogger, LogToDB>();

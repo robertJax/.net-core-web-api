@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "l7Gw0npzudCmENgjCU2IiJA0JBYahKRD/OLQqjtF5/5qGXfwM+TIjPxcj6CvayEVuWNVFBPoaEmknrfbZ/Go7w==",
+  "dgSpecHash": "HBkF6IwAkrJC+6qG1jmVXmE2rXhwP3bVVIJikBfc9AlzZeiQocFzjiqGWtzIu7WlKXxHXn3RPIduncz2Z+Bq6A==",
   "success": true,
-  "projectFilePath": "/Users/rjacky/Desktop/Net Web Api Projects/web_api/web_api.csproj",
+  "projectFilePath": "/Users/rjacky/Desktop/Net Web Api Projects/api/web_api/web_api.csproj",
   "expectedPackageFiles": [
+    "/Users/rjacky/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
     "/Users/rjacky/.nuget/packages/bouncycastle.cryptography/2.2.1/bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "/Users/rjacky/.nuget/packages/google.protobuf/3.25.1/google.protobuf.3.25.1.nupkg.sha512",
     "/Users/rjacky/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",

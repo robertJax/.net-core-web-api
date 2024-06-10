@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/rjacky/Desktop/Net Web Api Projects/web_api/web_api.csproj": {}
+    "/Users/rjacky/Desktop/Net Web Api Projects/api/web_api/web_api.csproj": {}
   },
   "projects": {
-    "/Users/rjacky/Desktop/Net Web Api Projects/web_api/web_api.csproj": {
+    "/Users/rjacky/Desktop/Net Web Api Projects/api/web_api/web_api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/rjacky/Desktop/Net Web Api Projects/web_api/web_api.csproj",
+        "projectUniqueName": "/Users/rjacky/Desktop/Net Web Api Projects/api/web_api/web_api.csproj",
         "projectName": "web_api",
-        "projectPath": "/Users/rjacky/Desktop/Net Web Api Projects/web_api/web_api.csproj",
+        "projectPath": "/Users/rjacky/Desktop/Net Web Api Projects/api/web_api/web_api.csproj",
         "packagesPath": "/Users/rjacky/.nuget/packages/",
-        "outputPath": "/Users/rjacky/Desktop/Net Web Api Projects/web_api/obj/",
+        "outputPath": "/Users/rjacky/Desktop/Net Web Api Projects/api/web_api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/rjacky/.nuget/NuGet/NuGet.Config"
@@ -32,17 +32,16 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
               "version": "[8.0.4, )"

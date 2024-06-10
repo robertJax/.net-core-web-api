@@ -1,0 +1,30 @@
+2024-05-10 17:14:21.933 +11:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5106/api/Student/Update application/json-patch+json 135
+2024-05-10 17:14:21.937 +11:00 [INF] Executing endpoint 'web_api.Controllers.StudentController.UpdateStudent (web_api)'
+2024-05-10 17:14:21.942 +11:00 [INF] Route matched with {action = "UpdateStudent", controller = "Student"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[web_api.Model.StudentDTO] UpdateStudent(web_api.Model.StudentDTO) on controller web_api.Controllers.StudentController (web_api).
+2024-05-10 17:14:21.975 +11:00 [INF] Executing action method web_api.Controllers.StudentController.UpdateStudent (web_api) - Validation state: "Valid"
+2024-05-10 17:14:22.031 +11:00 [INF] Executed DbCommand (4ms) [Parameters=[@__model_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`Address`, `s`.`DOB`, `s`.`Email`, `s`.`StudentName`
+FROM `Students` AS `s`
+WHERE `s`.`Id` = @__model_Id_0
+LIMIT 1
+2024-05-10 17:14:22.167 +11:00 [INF] Executed DbCommand (68ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (DbType = DateTime), @p2='?' (Size = 250), @p3='?' (Size = 250)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Students` SET `Address` = @p0, `DOB` = @p1, `Email` = @p2, `StudentName` = @p3
+WHERE `Id` = @p4;
+2024-05-10 17:14:22.171 +11:00 [INF] Executed action method web_api.Controllers.StudentController.UpdateStudent (web_api), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 195.8892ms.
+2024-05-10 17:14:22.173 +11:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2024-05-10 17:14:22.173 +11:00 [INF] Executed action web_api.Controllers.StudentController.UpdateStudent (web_api) in 231.0329ms
+2024-05-10 17:14:22.173 +11:00 [INF] Executed endpoint 'web_api.Controllers.StudentController.UpdateStudent (web_api)'
+2024-05-10 17:14:22.173 +11:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5106/api/Student/Update application/json-patch+json 135 - 204 - - 240.3964ms
+2024-05-10 17:14:38.600 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Student/All - -
+2024-05-10 17:14:38.601 +11:00 [INF] Executing endpoint 'web_api.Controllers.StudentController.GetStudents (web_api)'
+2024-05-10 17:14:38.601 +11:00 [INF] Route matched with {action = "GetStudents", controller = "Student"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[web_api.Model.StudentDTO]] GetStudents() on controller web_api.Controllers.StudentController (web_api).
+2024-05-10 17:14:38.603 +11:00 [INF] Executing action method web_api.Controllers.StudentController.GetStudents (web_api) - Validation state: "Valid"
+2024-05-10 17:14:38.603 +11:00 [INF] GetStudents method started
+2024-05-10 17:14:38.639 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`StudentName`, `s`.`Address`, `s`.`Email`, `s`.`DOB`
+FROM `Students` AS `s`
+2024-05-10 17:14:38.639 +11:00 [INF] Executed action method web_api.Controllers.StudentController.GetStudents (web_api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 36.2822ms.
+2024-05-10 17:14:38.639 +11:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[web_api.Model.StudentDTO, web_api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-10 17:14:38.640 +11:00 [INF] Executed action web_api.Controllers.StudentController.GetStudents (web_api) in 38.4127ms
+2024-05-10 17:14:38.640 +11:00 [INF] Executed endpoint 'web_api.Controllers.StudentController.GetStudents (web_api)'
+2024-05-10 17:14:38.640 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/All - - - 200 201 application/json;+charset=utf-8 39.8033ms

@@ -1,0 +1,13 @@
+2024-06-10 13:57:02.204 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Student/All - -
+2024-06-10 13:57:02.206 +11:00 [INF] Executing endpoint 'web_api.Controllers.StudentController.GetStudentsAsync (web_api)'
+2024-06-10 13:57:02.206 +11:00 [INF] Route matched with {action = "GetStudents", controller = "Student"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[web_api.Model.StudentDTO]]] GetStudentsAsync() on controller web_api.Controllers.StudentController (web_api).
+2024-06-10 13:57:02.208 +11:00 [INF] Executing action method web_api.Controllers.StudentController.GetStudentsAsync (web_api) - Validation state: "Valid"
+2024-06-10 13:57:02.208 +11:00 [INF] GetStudents method started
+2024-06-10 13:57:02.245 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`Address`, `s`.`DOB`, `s`.`Email`, `s`.`StudentName`
+FROM `Students` AS `s`
+2024-06-10 13:57:02.246 +11:00 [INF] Executed action method web_api.Controllers.StudentController.GetStudentsAsync (web_api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 38.1965ms.
+2024-06-10 13:57:02.247 +11:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[web_api.Model.StudentDTO, web_api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-10 13:57:02.247 +11:00 [INF] Executed action web_api.Controllers.StudentController.GetStudentsAsync (web_api) in 40.8093ms
+2024-06-10 13:57:02.247 +11:00 [INF] Executed endpoint 'web_api.Controllers.StudentController.GetStudentsAsync (web_api)'
+2024-06-10 13:57:02.247 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/All - - - 200 201 application/json;+charset=utf-8 43.0554ms

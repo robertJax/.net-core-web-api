@@ -1,0 +1,28 @@
+2024-06-10 13:58:02.543 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Student/jax - -
+2024-06-10 13:58:02.548 +11:00 [INF] Executing endpoint 'web_api.Controllers.StudentController.GetStudentByNameAsync (web_api)'
+2024-06-10 13:58:02.551 +11:00 [INF] Route matched with {action = "GetStudentByName", controller = "Student"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[web_api.Model.StudentDTO]] GetStudentByNameAsync(System.String) on controller web_api.Controllers.StudentController (web_api).
+2024-06-10 13:58:02.554 +11:00 [INF] Executing action method web_api.Controllers.StudentController.GetStudentByNameAsync (web_api) - Validation state: "Valid"
+2024-06-10 13:58:02.564 +11:00 [INF] Executed DbCommand (4ms) [Parameters=[@__name_0='?' (Size = 250)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`Address`, `s`.`DOB`, `s`.`Email`, `s`.`StudentName`
+FROM `Students` AS `s`
+WHERE `s`.`StudentName` = @__name_0
+LIMIT 1
+2024-06-10 13:58:02.564 +11:00 [INF] Executed action method web_api.Controllers.StudentController.GetStudentByNameAsync (web_api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 9.7846ms.
+2024-06-10 13:58:02.564 +11:00 [INF] Executing OkObjectResult, writing value of type 'web_api.Model.StudentDTO'.
+2024-06-10 13:58:02.565 +11:00 [INF] Executed action web_api.Controllers.StudentController.GetStudentByNameAsync (web_api) in 13.0687ms
+2024-06-10 13:58:02.565 +11:00 [INF] Executed endpoint 'web_api.Controllers.StudentController.GetStudentByNameAsync (web_api)'
+2024-06-10 13:58:02.565 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/jax - - - 200 100 application/json;+charset=utf-8 21.5070ms
+2024-06-10 13:58:09.213 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Student/tom - -
+2024-06-10 13:58:09.213 +11:00 [INF] Executing endpoint 'web_api.Controllers.StudentController.GetStudentByNameAsync (web_api)'
+2024-06-10 13:58:09.213 +11:00 [INF] Route matched with {action = "GetStudentByName", controller = "Student"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[web_api.Model.StudentDTO]] GetStudentByNameAsync(System.String) on controller web_api.Controllers.StudentController (web_api).
+2024-06-10 13:58:09.214 +11:00 [INF] Executing action method web_api.Controllers.StudentController.GetStudentByNameAsync (web_api) - Validation state: "Valid"
+2024-06-10 13:58:09.224 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[@__name_0='?' (Size = 250)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`Address`, `s`.`DOB`, `s`.`Email`, `s`.`StudentName`
+FROM `Students` AS `s`
+WHERE `s`.`StudentName` = @__name_0
+LIMIT 1
+2024-06-10 13:58:09.225 +11:00 [INF] Executed action method web_api.Controllers.StudentController.GetStudentByNameAsync (web_api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 10.24ms.
+2024-06-10 13:58:09.225 +11:00 [INF] Executing OkObjectResult, writing value of type 'web_api.Model.StudentDTO'.
+2024-06-10 13:58:09.225 +11:00 [INF] Executed action web_api.Controllers.StudentController.GetStudentByNameAsync (web_api) in 11.3806ms
+2024-06-10 13:58:09.225 +11:00 [INF] Executed endpoint 'web_api.Controllers.StudentController.GetStudentByNameAsync (web_api)'
+2024-06-10 13:58:09.225 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/tom - - - 200 98 application/json;+charset=utf-8 12.1402ms

@@ -23,6 +23,9 @@ namespace web_api.Model
         [Required(ErrorMessage = "Please enter valid Address")]
         public string Address { get; set; }
 
+        [Required]
+        public DateTime DOB { get; set; }
+
         //public string Password { get; set; }
 
         //[Compare(nameof(Password))] //Compare match Confirm password with password validator
@@ -30,6 +33,6 @@ namespace web_api.Model
 
         //[DateCheckAttribute]
         //public DateTime AdmissionDate { get; set; }
-    }
+	}
 }
 

@@ -1,0 +1,33 @@
+2024-06-10 14:27:30.673 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Demo - -
+2024-06-10 14:27:30.681 +11:00 [INF] Executing endpoint 'web_api.Controllers.DemoController.Index (web_api)'
+2024-06-10 14:27:30.698 +11:00 [INF] Route matched with {action = "Index", controller = "Demo"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller web_api.Controllers.DemoController (web_api).
+2024-06-10 14:27:30.704 +11:00 [INF] Executing action method web_api.Controllers.DemoController.Index (web_api) - Validation state: "Valid"
+2024-06-10 14:27:30.707 +11:00 [INF] This is the home demo page
+2024-06-10 14:27:30.709 +11:00 [INF] Executed action method web_api.Controllers.DemoController.Index (web_api), returned result Microsoft.AspNetCore.Mvc.OkResult in 0.4147ms.
+2024-06-10 14:27:30.713 +11:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-10 14:27:30.716 +11:00 [INF] Executed action web_api.Controllers.DemoController.Index (web_api) in 15.3877ms
+2024-06-10 14:27:30.716 +11:00 [INF] Executed endpoint 'web_api.Controllers.DemoController.Index (web_api)'
+2024-06-10 14:27:30.716 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Demo - - - 200 0 - 42.7831ms
+2024-06-10 14:27:33.611 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Demo - -
+2024-06-10 14:27:33.613 +11:00 [INF] Executing endpoint 'web_api.Controllers.DemoController.Index (web_api)'
+2024-06-10 14:27:33.614 +11:00 [INF] Route matched with {action = "Index", controller = "Demo"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller web_api.Controllers.DemoController (web_api).
+2024-06-10 14:27:33.614 +11:00 [INF] Executing action method web_api.Controllers.DemoController.Index (web_api) - Validation state: "Valid"
+2024-06-10 14:27:33.614 +11:00 [INF] This is the home demo page
+2024-06-10 14:27:33.614 +11:00 [INF] Executed action method web_api.Controllers.DemoController.Index (web_api), returned result Microsoft.AspNetCore.Mvc.OkResult in 0.0684ms.
+2024-06-10 14:27:33.615 +11:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-10 14:27:33.615 +11:00 [INF] Executed action web_api.Controllers.DemoController.Index (web_api) in 1.0489ms
+2024-06-10 14:27:33.615 +11:00 [INF] Executed endpoint 'web_api.Controllers.DemoController.Index (web_api)'
+2024-06-10 14:27:33.615 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Demo - - - 200 0 - 4.3696ms
+2024-06-10 14:27:43.509 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Student/All - -
+2024-06-10 14:27:43.509 +11:00 [INF] Executing endpoint 'web_api.Controllers.StudentController.GetStudentsAsync (web_api)'
+2024-06-10 14:27:43.515 +11:00 [INF] Route matched with {action = "GetStudents", controller = "Student"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[web_api.Model.StudentDTO]]] GetStudentsAsync() on controller web_api.Controllers.StudentController (web_api).
+2024-06-10 14:27:43.674 +11:00 [INF] Executing action method web_api.Controllers.StudentController.GetStudentsAsync (web_api) - Validation state: "Valid"
+2024-06-10 14:27:43.675 +11:00 [INF] GetStudents method started
+2024-06-10 14:27:44.417 +11:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`Address`, `s`.`DOB`, `s`.`Email`, `s`.`StudentName`
+FROM `Students` AS `s`
+2024-06-10 14:27:44.481 +11:00 [INF] Executed action method web_api.Controllers.StudentController.GetStudentsAsync (web_api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 807.59ms.
+2024-06-10 14:27:44.489 +11:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[web_api.Model.StudentDTO, web_api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-10 14:27:44.609 +11:00 [INF] Executed action web_api.Controllers.StudentController.GetStudentsAsync (web_api) in 1093.9351ms
+2024-06-10 14:27:44.610 +11:00 [INF] Executed endpoint 'web_api.Controllers.StudentController.GetStudentsAsync (web_api)'
+2024-06-10 14:27:44.624 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/All - - - 200 317 application/json;+charset=utf-8 1115.1855ms
