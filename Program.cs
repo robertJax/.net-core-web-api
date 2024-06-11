@@ -52,7 +52,8 @@ builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 // builder.Services.AddTransient<IMyLogger, LogToDB>();
 
 builder.Services.AddTransient<IMyLogger, LogToServer>();
-builder.Services.AddTransient<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped(typeof(ICollegeRepositiory<>), typeof(CollegeRepository<>));
 
 var app = builder.Build();
 

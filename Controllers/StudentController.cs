@@ -13,9 +13,10 @@ namespace web_api.Controllers
 	{
         private readonly ILogger<StudentController> _logger;
         private readonly IMapper _mapper;
-        private readonly IStudentRepository _studentRepository;
+        // private readonly IStudentRepository _studentRepository;
+        private readonly ICollegeRepositiory<Student> _studentRepository;
 
-        public StudentController(ILogger<StudentController> logger,IMapper mapper, IStudentRepository studentRepository)
+        public StudentController(ILogger<StudentController> logger,IMapper mapper, ICollegeRepositiory<Student> studentRepository)
         {
             _logger = logger;
             _mapper = mapper;
@@ -60,7 +61,7 @@ namespace web_api.Controllers
                 // .ProjectTo<StudentDTO>(_mapper.ConfigurationProvider)
                 // .FirstOrDefaultAsync();
             
-            var student = await _studentRepository.GetByIdAsync(id);
+            var student = await _studentRepository.GetByIdAsync(student => student.Id == id);
 
             //NotFound - 404 - NotFound - client error
             if (student == null)
@@ -96,12 +97,12 @@ namespace web_api.Controllers
             //Second way is using attribute
             //create object for student
             Student student = _mapper.Map<Student>(dto);
-            var id = await _studentRepository.CreateAsync(student);
+            var studentAfterCreation = await _studentRepository.CreateAsync(student);
             
             // await _dbContext.Students.AddAsync(student);
             // await _dbContext.SaveChangesAsync();
 
-            dto.Id = id;
+            dto.Id = studentAfterCreation.Id;
 
             return CreatedAtRoute("GetStudentById", new { id = dto.Id }, dto);
             //return Ok(model);
@@ -120,7 +121,7 @@ namespace web_api.Controllers
                 BadRequest();
 
             // var existingStudent = await _dbContext.Students.AsNoTracking().Where(s => s.Id == dto.Id).FirstOrDefaultAsync();
-            var existingStudent = await _studentRepository.GetByIdAsync(dto.Id, true);
+            var existingStudent = await _studentRepository.GetByIdAsync(student => student.Id == dto.Id, true);
             
             if (existingStudent == null)
                 return NotFound();
@@ -153,7 +154,8 @@ namespace web_api.Controllers
                 BadRequest();
 
             // var existingStudent = await _dbContext.Students.AsNoTracking().Where(s => s.Id == id).FirstOrDefaultAsync();
-            var existingStudent = await _studentRepository.GetByIdAsync(id, true);
+            var existingStudent = await _studentRepository.GetByIdAsync(student => student.Id == id, true);
+            
             if (existingStudent == null)
                 return NotFound();
 
@@ -190,7 +192,7 @@ namespace web_api.Controllers
                 return BadRequest();
 
             // var student = await _dbContext.Students.Where(n => n.StudentName == name).FirstOrDefaultAsync();
-            var student = await _studentRepository.GetByNameAsync(name);
+            var student = await _studentRepository.GetByNameAsync(student => student.StudentName.ToLower().Contains(name.ToLower()));
             
             //NotFound - 404 - NotFound client error
             if (student == null)
@@ -214,7 +216,7 @@ namespace web_api.Controllers
                 return BadRequest();
 
             // var student = await _dbContext.Students.Where(n => n.Id == id).FirstOrDefaultAsync();
-            var student = await _studentRepository.GetByIdAsync(id);
+            var student = await _studentRepository.GetByIdAsync(student => student.Id == id);
             
             //NotFound - 404 - NotFound - client error
             if (student == null)
