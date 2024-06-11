@@ -3,6 +3,7 @@ using web_api.Data;
 using web_api.Logging;
 using Serilog;
 using web_api.Configurations;
+using web_api.Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,7 +49,10 @@ builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 //builder.Services.AddScoped<IMyLogger, LogToDB>();
 //builder.Services.AddSingleton<IMyLogger, LogToDB>();
-builder.Services.AddTransient<IMyLogger, LogToDB>();
+// builder.Services.AddTransient<IMyLogger, LogToDB>();
+
+builder.Services.AddTransient<IMyLogger, LogToServer>();
+builder.Services.AddTransient<IStudentRepository, StudentRepository>();
 
 var app = builder.Build();
 

@@ -1,0 +1,22 @@
+2024-06-11 11:20:02.937 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Student/All - -
+2024-06-11 11:20:02.946 +11:00 [INF] Executing endpoint 'web_api.Controllers.StudentController.GetStudentsAsync (web_api)'
+2024-06-11 11:20:02.962 +11:00 [INF] Route matched with {action = "GetStudents", controller = "Student"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[web_api.Model.StudentDTO]]] GetStudentsAsync() on controller web_api.Controllers.StudentController (web_api).
+2024-06-11 11:20:03.183 +11:00 [INF] Executing action method web_api.Controllers.StudentController.GetStudentsAsync (web_api) - Validation state: "Valid"
+2024-06-11 11:20:03.186 +11:00 [INF] GetStudents method started
+2024-06-11 11:20:04.242 +11:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, CASE
+    WHEN `s`.`StudentName` = '' THEN 'No address found'
+    ELSE `s`.`StudentName`
+END AS `StudentName`, CASE
+    WHEN `s`.`Email` = '' THEN 'No address found'
+    ELSE `s`.`Email`
+END AS `Email`, CASE
+    WHEN `s`.`Address` IS NULL OR (`s`.`Address` = '') THEN 'No address found'
+    ELSE `s`.`Address`
+END AS `Address`, `s`.`DOB`
+FROM `Students` AS `s`
+2024-06-11 11:20:04.276 +11:00 [INF] Executed action method web_api.Controllers.StudentController.GetStudentsAsync (web_api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1087.551ms.
+2024-06-11 11:20:04.289 +11:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[web_api.Model.StudentDTO, web_api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-11 11:20:04.457 +11:00 [INF] Executed action web_api.Controllers.StudentController.GetStudentsAsync (web_api) in 1491.4918ms
+2024-06-11 11:20:04.458 +11:00 [INF] Executed endpoint 'web_api.Controllers.StudentController.GetStudentsAsync (web_api)'
+2024-06-11 11:20:04.475 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/All - - - 200 442 application/json;+charset=utf-8 1537.4070ms

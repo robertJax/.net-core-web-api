@@ -1,13 +1,8 @@
-﻿/*using System;
-using System.Net;*/
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-// using Org.BouncyCastle.Crypto.Engines;
 using web_api.Data;
-// using web_api.Logging;
+using web_api.Data.Repository;
 using web_api.Model;
 
 namespace web_api.Controllers
@@ -17,14 +12,14 @@ namespace web_api.Controllers
 	public class StudentController : ControllerBase
 	{
         private readonly ILogger<StudentController> _logger;
-        private readonly CollegeDbContext _dbContext;
         private readonly IMapper _mapper;
+        private readonly IStudentRepository _studentRepository;
 
-        public StudentController(ILogger<StudentController> logger, CollegeDbContext dbContext, IMapper mapper)
+        public StudentController(ILogger<StudentController> logger,IMapper mapper, IStudentRepository studentRepository)
         {
             _logger = logger;
-            _dbContext = dbContext;
             _mapper = mapper;
+            _studentRepository = studentRepository;
         }
 
 		[HttpGet] //this is the verb attribute
@@ -34,45 +29,15 @@ namespace web_api.Controllers
         public async  Task<ActionResult<IEnumerable<StudentDTO>>> GetStudentsAsync()
 		{
             _logger.LogInformation("GetStudents method started");
-               
-            //var students = new List<StudentDTO>();
-            //foreach (var item in CollegeRepository.Students)
-            //{
-            //    StudentDTO obj = new StudentDTO()
-            //    {
-            //        Id = item.Id,
-            //        StudentName = item.StudentName,
-            //        Address = item.Address,
-            //        Email = item.Email
-            //    };
-            //    students.Add(obj);
-            //}
             
-            //Get students
             // var students = await _dbContext.Students.ToListAsync();
+            var students = await _studentRepository.GetAllAsync();
+            //return await _dbContext.Students.ProjectTo<StudentDTO>(_mapper.ConfigurationProvider).ToListAsync();
 
-            //If you want to return just particular columns, use StudentDTO
-            //using Linq query
-
-            // var students = await _dbContext.Students.ToListAsync();
-            return await _dbContext.Students.ProjectTo<StudentDTO>(_mapper.ConfigurationProvider).ToListAsync();
-
-            // var studentDtoData = _mapper.Map<List<StudentDTO>>(students);
+            var studentDtoData = _mapper.Map<List<StudentDTO>>(students);
             
-            //With AutoMapper with don't need code below
-            // var students = await _dbContext.Students.Select(s => new StudentDTO()
-            // {
-            //     Id = s.Id,
-            //     StudentName = s.StudentName,
-            //     Address = s.Address,
-            //     Email = s.Email,
-            //     DOB = s.DOB
-            // }).ToListAsync();  
-            
-            
-
             //Ok - 200 Success
-            // return Ok(studentDtoData);
+            return Ok(studentDtoData);
 		}
 
         [HttpGet]
@@ -91,9 +56,11 @@ namespace web_api.Controllers
             }
              
 
-            var student = await _dbContext.Students.Where(n => n.Id == id)
+            // var student = await _dbContext.Students.Where(n => n.Id == id)
                 // .ProjectTo<StudentDTO>(_mapper.ConfigurationProvider)
-                .FirstOrDefaultAsync();
+                // .FirstOrDefaultAsync();
+            
+            var student = await _studentRepository.GetByIdAsync(id);
 
             //NotFound - 404 - NotFound - client error
             if (student == null)
@@ -129,10 +96,12 @@ namespace web_api.Controllers
             //Second way is using attribute
             //create object for student
             Student student = _mapper.Map<Student>(dto);
-            await _dbContext.Students.AddAsync(student);
-            await _dbContext.SaveChangesAsync();
+            var id = await _studentRepository.CreateAsync(student);
+            
+            // await _dbContext.Students.AddAsync(student);
+            // await _dbContext.SaveChangesAsync();
 
-            dto.Id = student.Id;
+            dto.Id = id;
 
             return CreatedAtRoute("GetStudentById", new { id = dto.Id }, dto);
             //return Ok(model);
@@ -146,25 +115,26 @@ namespace web_api.Controllers
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
         public async Task<ActionResult<StudentDTO>> UpdateStudentAsync([FromBody] StudentDTO dto)
-        {
+          {
             if (dto == null || dto.Id <= 0)
                 BadRequest();
 
-            var existingStudent = await _dbContext.Students.AsNoTracking().Where(s => s.Id == dto.Id).FirstOrDefaultAsync();
-
+            // var existingStudent = await _dbContext.Students.AsNoTracking().Where(s => s.Id == dto.Id).FirstOrDefaultAsync();
+            var existingStudent = await _studentRepository.GetByIdAsync(dto.Id, true);
+            
             if (existingStudent == null)
                 return NotFound();
 
             var newRecord = _mapper.Map<Student>(dto);
-            
-            _dbContext.Students.Update(newRecord);
+            await _studentRepository.UpdateAsync(newRecord);
+            // _dbContext.Students.Update(newRecord);
 
             // existingStudent.StudentName = model.StudentName;
             // existingStudent.Email = model.Email;
             // existingStudent.Address = model.Address;
             // existingStudent.DOB = model.DOB;
             
-            await _dbContext.SaveChangesAsync();
+            // await _dbContext.SaveChangesAsync();
 
             //return Ok(existingStudent);
             return NoContent();
@@ -182,8 +152,8 @@ namespace web_api.Controllers
             if (patchDocument == null || id <= 0)
                 BadRequest();
 
-            var existingStudent = await _dbContext.Students.AsNoTracking().Where(s => s.Id == id).FirstOrDefaultAsync();
-
+            // var existingStudent = await _dbContext.Students.AsNoTracking().Where(s => s.Id == id).FirstOrDefaultAsync();
+            var existingStudent = await _studentRepository.GetByIdAsync(id, true);
             if (existingStudent == null)
                 return NotFound();
 
@@ -195,16 +165,14 @@ namespace web_api.Controllers
                 return BadRequest(ModelState);
 
             existingStudent = _mapper.Map(studentDto, existingStudent);
-
-            _dbContext.Students.Update(existingStudent);
-    
-            await _dbContext.SaveChangesAsync();
+            await _studentRepository.UpdateAsync(existingStudent);
+            // _dbContext.Students.Update(existingStudent);
+            //
+            // await _dbContext.SaveChangesAsync();
             
             // existingStudent = _mapper.Map<Student>(studentDto);
             
             /*await _dbContext.UpdateAsync(existingStudent);*/
-            
-            await _dbContext.SaveChangesAsync();
 
             return NoContent();
         }
@@ -221,8 +189,9 @@ namespace web_api.Controllers
             if (string.IsNullOrEmpty(name))
                 return BadRequest();
 
-            var student = await _dbContext.Students.Where(n => n.StudentName == name).FirstOrDefaultAsync();
-
+            // var student = await _dbContext.Students.Where(n => n.StudentName == name).FirstOrDefaultAsync();
+            var student = await _studentRepository.GetByNameAsync(name);
+            
             //NotFound - 404 - NotFound client error
             if (student == null)
                 return NotFound($"Student with name {name} not found");
@@ -244,14 +213,17 @@ namespace web_api.Controllers
             if (id <= 0)
                 return BadRequest();
 
-            var student = await _dbContext.Students.Where(n => n.Id == id).FirstOrDefaultAsync();
-
+            // var student = await _dbContext.Students.Where(n => n.Id == id).FirstOrDefaultAsync();
+            var student = await _studentRepository.GetByIdAsync(id);
+            
             //NotFound - 404 - NotFound - client error
             if (student == null)
                 return NotFound($"Student with id {id} not found!");
-
-            _dbContext.Students.Remove(student);
-            await _dbContext.SaveChangesAsync();
+            
+            await _studentRepository.DeleteAsync(student);
+            
+            // _dbContext.Students.Remove(student);
+            // await _dbContext.SaveChangesAsync();
 
             return Ok(true);
         }

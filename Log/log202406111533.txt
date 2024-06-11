@@ -1,0 +1,28 @@
+2024-06-11 15:33:00.072 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Student/2 - -
+2024-06-11 15:33:00.080 +11:00 [INF] Executing endpoint 'web_api.Controllers.StudentController.GetStudentByIdAsync (web_api)'
+2024-06-11 15:33:00.091 +11:00 [INF] Route matched with {action = "GetStudentById", controller = "Student"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[web_api.Model.StudentDTO]] GetStudentByIdAsync(Int32) on controller web_api.Controllers.StudentController (web_api).
+2024-06-11 15:33:00.107 +11:00 [INF] Executing action method web_api.Controllers.StudentController.GetStudentByIdAsync (web_api) - Validation state: "Valid"
+2024-06-11 15:33:00.537 +11:00 [INF] Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`Address`, `s`.`DOB`, `s`.`Email`, `s`.`StudentName`
+FROM `Students` AS `s`
+WHERE `s`.`Id` = @__id_0
+LIMIT 1
+2024-06-11 15:33:00.540 +11:00 [INF] Executed action method web_api.Controllers.StudentController.GetStudentByIdAsync (web_api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 433.2328ms.
+2024-06-11 15:33:00.541 +11:00 [INF] Executing OkObjectResult, writing value of type 'web_api.Model.StudentDTO'.
+2024-06-11 15:33:00.541 +11:00 [INF] Executed action web_api.Controllers.StudentController.GetStudentByIdAsync (web_api) in 449.4436ms
+2024-06-11 15:33:00.541 +11:00 [INF] Executed endpoint 'web_api.Controllers.StudentController.GetStudentByIdAsync (web_api)'
+2024-06-11 15:33:00.542 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/2 - - - 200 101 application/json;+charset=utf-8 469.9545ms
+2024-06-11 15:33:13.818 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/api/Student/4 - -
+2024-06-11 15:33:13.819 +11:00 [INF] Executing endpoint 'web_api.Controllers.StudentController.GetStudentByIdAsync (web_api)'
+2024-06-11 15:33:13.820 +11:00 [INF] Route matched with {action = "GetStudentById", controller = "Student"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[web_api.Model.StudentDTO]] GetStudentByIdAsync(Int32) on controller web_api.Controllers.StudentController (web_api).
+2024-06-11 15:33:13.822 +11:00 [INF] Executing action method web_api.Controllers.StudentController.GetStudentByIdAsync (web_api) - Validation state: "Valid"
+2024-06-11 15:33:14.088 +11:00 [INF] Executed DbCommand (144ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`Address`, `s`.`DOB`, `s`.`Email`, `s`.`StudentName`
+FROM `Students` AS `s`
+WHERE `s`.`Id` = @__id_0
+LIMIT 1
+2024-06-11 15:33:14.091 +11:00 [INF] Executed action method web_api.Controllers.StudentController.GetStudentByIdAsync (web_api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 268.2338ms.
+2024-06-11 15:33:14.091 +11:00 [INF] Executing OkObjectResult, writing value of type 'web_api.Model.StudentDTO'.
+2024-06-11 15:33:14.091 +11:00 [INF] Executed action web_api.Controllers.StudentController.GetStudentByIdAsync (web_api) in 271.3605ms
+2024-06-11 15:33:14.092 +11:00 [INF] Executed endpoint 'web_api.Controllers.StudentController.GetStudentByIdAsync (web_api)'
+2024-06-11 15:33:14.092 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/4 - - - 200 122 application/json;+charset=utf-8 273.7262ms

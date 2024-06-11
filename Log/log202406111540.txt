@@ -1,0 +1,8 @@
+2024-06-11 15:40:02.009 +11:00 [INF] Now listening on: http://localhost:5106
+2024-06-11 15:40:02.054 +11:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-11 15:40:02.055 +11:00 [INF] Hosting environment: Development
+2024-06-11 15:40:02.055 +11:00 [INF] Content root path: /Users/rjacky/Desktop/Net Web Api Projects/api/web_api
+2024-06-11 15:40:06.992 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/index.html - -
+2024-06-11 15:40:07.129 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/index.html - - - 200 - text/html;charset=utf-8 138.5544ms
+2024-06-11 15:40:07.197 +11:00 [INF] Request starting HTTP/1.1 GET http://localhost:5106/swagger/v1/swagger.json - -
+2024-06-11 15:40:07.289 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 92.4335ms
