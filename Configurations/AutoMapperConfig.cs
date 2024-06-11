@@ -18,10 +18,15 @@ public class AutoMapperConfig : Profile
         //CreateMap<StudentDTO, Student>().ReverseMap().ForMember(n=> n.StudentName, opt => opt.Ignore());
 
         //Config for transforming some property
-        // CreateMap<StudentDTO, Student>().ReverseMap().AddTransform<string>(n => string.IsNullOrEmpty(n)?"No address found": n);
+        CreateMap<StudentDTO, Student>().ReverseMap()
+            .ForMember(n => n.Address,
+                opt => opt.MapFrom(n => string.IsNullOrEmpty(n.Address) ? "No address found" : n.Address))
+            .ForMember(n => n.Email,
+            opt => opt.MapFrom(n => string.IsNullOrEmpty(n.Email) ? "No email found" : n.Email));
+        // .AddTransform<string>(n => string.IsNullOrEmpty(n)?"No address found": n);
 
-        CreateMap<StudentDTO, Student>().ReverseMap();
-        
+        // CreateMap<StudentDTO, Student>().ReverseMap();
+
         //We can try some options for prefix or postfix
     }
 }
