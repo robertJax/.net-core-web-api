@@ -1,0 +1,20 @@
+2024-06-20 15:29:36.838 +11:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='collegeAppDB' AND TABLE_NAME='__EFMigrationsHistory';
+2024-06-20 15:29:36.863 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='collegeAppDB' AND TABLE_NAME='__EFMigrationsHistory';
+2024-06-20 15:29:36.871 +11:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-06-20 15:29:36.877 +11:00 [INF] Applying migration '20240620042925_UpdateRelationships'.
+2024-06-20 15:29:36.956 +11:00 [INF] Executed DbCommand (59ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE `Employees` DROP CONSTRAINT `FK_Employees_Departments_DepartmentId`;
+2024-06-20 15:29:36.970 +11:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE `Students` DROP CONSTRAINT `FK_Students_Departments_DepartmentId`;
+2024-06-20 15:29:37.012 +11:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE `Employees` ADD CONSTRAINT `FK_Employees_Department` FOREIGN KEY (`DepartmentId`) REFERENCES `Departments` (`Id`);
+2024-06-20 15:29:37.024 +11:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE `Students` ADD CONSTRAINT `FK_Students_Department` FOREIGN KEY (`DepartmentId`) REFERENCES `Departments` (`Id`);
+2024-06-20 15:29:37.027 +11:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20240620042925_UpdateRelationships', '7.0.16');

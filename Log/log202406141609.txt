@@ -1,0 +1,15 @@
+2024-06-14 16:09:12.062 +11:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='collegeAppDB' AND TABLE_NAME='__EFMigrationsHistory';
+2024-06-14 16:09:12.087 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='collegeAppDB' AND TABLE_NAME='__EFMigrationsHistory';
+2024-06-14 16:09:12.095 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-06-14 16:09:12.101 +11:00 [INF] Applying migration '20240614050902_UpdateDepartment'.
+2024-06-14 16:09:12.124 +11:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Departments` SET `DepartmentName` = 'Customs', `Description` = 'Customs Department'
+WHERE `Id` = 2;
+2024-06-14 16:09:12.124 +11:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20240614050902_UpdateDepartment', '7.0.16');

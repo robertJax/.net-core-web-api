@@ -36,5 +36,10 @@ public class StudentConfig : IEntityTypeConfiguration<Student>
                 DOB = new DateTime(2021, 01, 01)
             }
         });
+
+        builder.HasOne(n => n.Department)
+            .WithMany(n => n.Students)
+            .HasForeignKey(n => n.DepartmentId)
+            .HasConstraintName("FK_Students_Department");
     }
 }

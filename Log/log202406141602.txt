@@ -1,0 +1,9 @@
+2024-06-14 16:02:59.955 +11:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='collegeAppDB' AND TABLE_NAME='__EFMigrationsHistory';
+2024-06-14 16:02:59.984 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='collegeAppDB' AND TABLE_NAME='__EFMigrationsHistory';
+2024-06-14 16:02:59.991 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-06-14 16:02:59.997 +11:00 [INF] Applying migration '20240614050245_AddEmployeeTable'.

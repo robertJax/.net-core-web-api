@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using web_api.Data;
 
@@ -11,9 +12,11 @@ using web_api.Data;
 namespace sampleaapi.Migrations
 {
     [DbContext(typeof(CollegeDbContext))]
-    partial class CollegeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240614012511_AddDepartmentsTable")]
+    partial class AddDepartmentsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,60 +53,8 @@ namespace sampleaapi.Migrations
                         new
                         {
                             Id = 2,
-                            DepartmentName = "Customs",
-                            Description = "Customs Department"
-                        });
-                });
-
-            modelBuilder.Entity("web_api.Data.Employee", b =>
-                {
-                    b.Property<int>("EmpId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DOB")
-                        .HasMaxLength(200)
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int?>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("EmployeeName")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("Island")
-                        .HasMaxLength(200)
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<int>("NationalId")
-                        .HasMaxLength(500)
-                        .HasColumnType("int");
-
-                    b.HasKey("EmpId");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.ToTable("Employees", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            EmpId = 1,
-                            DOB = new DateTime(2022, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EmployeeName = "Jackson Robert",
-                            Island = "Efate",
-                            NationalId = 111
-                        },
-                        new
-                        {
-                            EmpId = 2,
-                            DOB = new DateTime(2021, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EmployeeName = "Tchilumba Mera",
-                            Island = "Maewo",
-                            NationalId = 112
+                            DepartmentName = "Finance and Treasury",
+                            Description = "Finance Department"
                         });
                 });
 
@@ -159,30 +110,17 @@ namespace sampleaapi.Migrations
                         });
                 });
 
-            modelBuilder.Entity("web_api.Data.Employee", b =>
-                {
-                    b.HasOne("web_api.Data.Department", "Department")
-                        .WithMany("Employees")
-                        .HasForeignKey("DepartmentId")
-                        .HasConstraintName("FK_Employees_Department");
-
-                    b.Navigation("Department");
-                });
-
             modelBuilder.Entity("web_api.Data.Student", b =>
                 {
                     b.HasOne("web_api.Data.Department", "Department")
                         .WithMany("Students")
-                        .HasForeignKey("DepartmentId")
-                        .HasConstraintName("FK_Students_Department");
+                        .HasForeignKey("DepartmentId");
 
                     b.Navigation("Department");
                 });
 
             modelBuilder.Entity("web_api.Data.Department", b =>
                 {
-                    b.Navigation("Employees");
-
                     b.Navigation("Students");
                 });
 #pragma warning restore 612, 618

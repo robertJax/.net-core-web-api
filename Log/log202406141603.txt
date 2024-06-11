@@ -1,0 +1,21 @@
+2024-06-14 16:03:00.055 +11:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Employees` (
+    `EmpId` int NOT NULL AUTO_INCREMENT,
+    `EmployeeName` varchar(200) NOT NULL,
+    `DOB` datetime(6) NOT NULL,
+    `Island` varchar(200) NULL,
+    `NationalId` int NOT NULL,
+    `DepartmentId` int NULL,
+    PRIMARY KEY (`EmpId`),
+    CONSTRAINT `FK_Employees_Departments_DepartmentId` FOREIGN KEY (`DepartmentId`) REFERENCES `Departments` (`Id`)
+);
+2024-06-14 16:03:00.065 +11:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Employees` (`EmpId`, `DOB`, `DepartmentId`, `EmployeeName`, `Island`, `NationalId`)
+VALUES (1, '2022-12-12 00:00:00.000000', NULL, 'Jackson Robert', 'Efate', 111);
+INSERT INTO `Employees` (`EmpId`, `DOB`, `DepartmentId`, `EmployeeName`, `Island`, `NationalId`)
+VALUES (2, '2021-12-12 00:00:00.000000', NULL, 'Tchilumba Mera', 'Maewo', 112);
+2024-06-14 16:03:00.087 +11:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Employees_DepartmentId` ON `Employees` (`DepartmentId`);
+2024-06-14 16:03:00.100 +11:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20240614050245_AddEmployeeTable', '7.0.16');

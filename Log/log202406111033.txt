@@ -1,8 +1,0 @@
-2024-06-11 10:33:00.594 +11:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
-SELECT `s`.`Id`, `s`.`Email`, `s`.`Address`, `s`.`DOB`
-FROM `Students` AS `s`
-2024-06-11 10:33:00.627 +11:00 [INF] Executed action method web_api.Controllers.StudentController.GetStudentsAsync (web_api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1115.6855ms.
-2024-06-11 10:33:00.640 +11:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[web_api.Model.StudentDTO, web_api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
-2024-06-11 10:33:00.809 +11:00 [INF] Executed action web_api.Controllers.StudentController.GetStudentsAsync (web_api) in 1539.6035ms
-2024-06-11 10:33:00.811 +11:00 [INF] Executed endpoint 'web_api.Controllers.StudentController.GetStudentsAsync (web_api)'
-2024-06-11 10:33:00.828 +11:00 [INF] Request finished HTTP/1.1 GET http://localhost:5106/api/Student/All - - - 200 306 application/json;+charset=utf-8 1585.8094ms

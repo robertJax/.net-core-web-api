@@ -3,57 +3,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace web_api.Data.Repository;
 
-public class StudentRepository : IStudentRepository
+//the StudentRepository has all methods inherited from the CollegeRepository (common repository)
+public class StudentRepository : CollegeRepository<Student>, IStudentRepository
 {
     private readonly CollegeDbContext _dbContext;
 
-    public StudentRepository(CollegeDbContext dbContext)
+    public StudentRepository(CollegeDbContext dbContext) : base(dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task<List<Student>> GetAllAsync()
+    public Task<List<Student>> GetStudentByFeeStatusAsync(int feeStatus)
     {
-        return await _dbContext.Students.ToListAsync();
-    }
-
-    public async Task<Student> GetByIdAsync(int id, bool useNoTracking  = false)
-    {
-        if (useNoTracking)
-        {
-            return await _dbContext.Students.AsNoTracking().Where(student => student.Id == id).FirstOrDefaultAsync();
-        }
-        else
-        {
-            return await _dbContext.Students.Where(student => student.Id == id).FirstOrDefaultAsync();
-        }
-    }
-
-    public async Task<Student> GetByNameAsync(string name)
-    {
-        return await _dbContext.Students.Where(student => student.StudentName.ToLower().Contains( name.ToLower())).FirstOrDefaultAsync();
-    }
-
-    public async Task<int> CreateAsync(Student student)
-    {
-        _dbContext.Students.Add(student);
-        await _dbContext.SaveChangesAsync();
-        return student.Id;
-    }
-
-    public async Task<int> UpdateAsync(Student student)
-    {
-
-        _dbContext.Update(student);
-        await _dbContext.SaveChangesAsync();
-        return student.Id;
-    }
-
-    public async Task<bool> DeleteAsync(Student student)
-    {
-        _dbContext.Students.Remove(student);
-        await _dbContext.SaveChangesAsync();
-
-        return true;
+        //Write code to return students having fee status pending
+        return null;
     }
 }

@@ -1,0 +1,9 @@
+2024-06-20 13:37:14.306 +11:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='collegeAppDB' AND TABLE_NAME='__EFMigrationsHistory';
+2024-06-20 13:37:14.345 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='collegeAppDB' AND TABLE_NAME='__EFMigrationsHistory';
+2024-06-20 13:37:14.354 +11:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-06-20 13:37:14.360 +11:00 [INF] No migrations were applied. The database is already up to date.

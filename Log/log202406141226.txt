@@ -1,0 +1,36 @@
+2024-06-14 12:26:20.122 +11:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='collegeAppDB' AND TABLE_NAME='__EFMigrationsHistory';
+2024-06-14 12:26:20.146 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='collegeAppDB' AND TABLE_NAME='__EFMigrationsHistory';
+2024-06-14 12:26:20.166 +11:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-06-14 12:26:20.172 +11:00 [INF] Applying migration '20240614012511_AddDepartmentsTable'.
+2024-06-14 12:26:20.227 +11:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE `Students` ADD `DepartmentId` int NULL;
+2024-06-14 12:26:20.240 +11:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Departments` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `DepartmentName` varchar(200) NOT NULL,
+    `Description` varchar(500) NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-06-14 12:26:20.260 +11:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Departments` (`Id`, `DepartmentName`, `Description`)
+VALUES (1, 'Finance and Treasury', 'Finance Department');
+INSERT INTO `Departments` (`Id`, `DepartmentName`, `Description`)
+VALUES (2, 'Finance and Treasury', 'Finance Department');
+2024-06-14 12:26:20.261 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Students` SET `DepartmentId` = NULL
+WHERE `Id` = 1;
+2024-06-14 12:26:20.262 +11:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Students` SET `DepartmentId` = NULL
+WHERE `Id` = 2;
+2024-06-14 12:26:20.283 +11:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Students_DepartmentId` ON `Students` (`DepartmentId`);
+2024-06-14 12:26:20.305 +11:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE `Students` ADD CONSTRAINT `FK_Students_Departments_DepartmentId` FOREIGN KEY (`DepartmentId`) REFERENCES `Departments` (`Id`);
+2024-06-14 12:26:20.306 +11:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20240614012511_AddDepartmentsTable', '7.0.16');
